@@ -41,7 +41,7 @@ const Navbar = () => {
 
                 <li>
                   <Link
-                    href="#"
+                    href="CustomJewellery"
                     className="text-gray-500 font-bold hover:text-gray-700"
                   >
                     Custom jewellery
