@@ -81,7 +81,7 @@ const Navbar = () => {
           <div className="flex items-center gap-4">
             <div className="hidden md:flex md:gap-4">
               <Link
-                href="#"
+                href="Login"
                 className="rounded-full bg-teal-600 px-5 py-2.5 text-sm  font-bold text-white shadow"
               >
                 Login
