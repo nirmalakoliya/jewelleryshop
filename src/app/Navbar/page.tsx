@@ -59,7 +59,7 @@ const Navbar = () => {
 
                 <li>
                   <Link
-                    href="#"
+                    href="About"
                     className="text-gray-500 font-bold hover:text-gray-700"
                   >
                     About
