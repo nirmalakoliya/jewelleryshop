@@ -50,10 +50,10 @@ const Navbar = () => {
 
                 <li>
                   <Link
-                    href="#"
+                    href="JewelleryPhotos"
                     className="text-gray-500 font-bold hover:text-gray-700"
                   >
-                    Designer jewellery
+                    jewellery Photos
                   </Link>
                 </li>
 
