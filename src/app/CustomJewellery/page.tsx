@@ -1,6 +1,7 @@
 "use client";
 import axios from "axios";
-import React, { useEffect, useState } from "react";
+import Link from "next/link";
+import React, { Key, useEffect, useState } from "react";
 
 const CustomJewellery = () => {
   const [data, setData] = useState([]);
@@ -28,6 +29,7 @@ const CustomJewellery = () => {
   }, []);
 
   type CustomJProps = {
+    id: Key | null | undefined;
     attributes: any;
   };
 
@@ -39,27 +41,32 @@ const CustomJewellery = () => {
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
           {data?.map((item: CustomJProps, id) => {
             return (
-              <div
-                key={id}
-                className="max-w-sm rounded overflow-hidden shadow-lg border border-gray-300 transition duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-105"
+              <Link
+                href={`/CustomJewellery/${item.attributes.slug}`}
+                key={item.id}
               >
-                <div className="flex justify-center">
-                  <img
-                    className="h-[200px] w-[200px]"
-                    src={`http://localhost:1337${item.attributes.image.data.attributes.url}`}
-                    alt={item.attributes.name}
-                  />
-                </div>
-                <div className="px-6 py-4">
-                  <div className="font-bold text-xl mb-2">
-                    {item.attributes.name}
+                <div
+                  key={id}
+                  className="max-w-sm rounded overflow-hidden shadow-lg border border-gray-300 transition duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-105"
+                >
+                  <div className="flex justify-center">
+                    <img
+                      className="h-[200px] w-[200px]"
+                      src={`http://localhost:1337${item.attributes.image.data.attributes.url}`}
+                      alt={item.attributes.name}
+                    />
                   </div>
-                  <div>{item.attributes.description}</div>
-                  <p className="text-base text-green-900 font-bold">
-                    MRP : &#8377;{item.attributes.price}
-                  </p>
+                  <div className="px-6 py-4">
+                    <div className="font-bold text-xl mb-2">
+                      {item.attributes.name}
+                    </div>
+                    <div>{item.attributes.description}</div>
+                    <p className="text-base text-green-900 font-bold">
+                      MRP : &#8377;{item.attributes.price}
+                    </p>
+                  </div>
                 </div>
-              </div>
+              </Link>
             );
           })}
         </div>
