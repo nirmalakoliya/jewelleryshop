@@ -41,7 +41,7 @@ const Navbar = () => {
 
                 <li>
                   <Link
-                    href="CustomJewellery"
+                    href="/CustomJewellery"
                     className="text-gray-500 font-bold hover:text-gray-700"
                   >
                     Custom jewellery
@@ -50,7 +50,7 @@ const Navbar = () => {
 
                 <li>
                   <Link
-                    href="JewelleryPhotos"
+                    href="/JewelleryPhotos"
                     className="text-gray-500 font-bold hover:text-gray-700"
                   >
                     jewellery Photos
@@ -59,7 +59,7 @@ const Navbar = () => {
 
                 <li>
                   <Link
-                    href="About"
+                    href="/About"
                     className="text-gray-500 font-bold hover:text-gray-700"
                   >
                     About
@@ -81,7 +81,7 @@ const Navbar = () => {
           <div className="flex items-center gap-4">
             <div className="hidden md:flex md:gap-4">
               <Link
-                href="Login"
+                href="/Login"
                 className="rounded-full bg-teal-600 px-5 py-2.5 text-sm  font-bold text-white shadow"
               >
                 Login
@@ -126,7 +126,7 @@ const Navbar = () => {
 
                 <li>
                   <Link
-                    href="#"
+                    href="/CustomJewellery"
                     className="text-gray-500 font-bold hover:text-gray-700"
                     onClick={closeNavbar}
                   >
@@ -136,17 +136,17 @@ const Navbar = () => {
 
                 <li>
                   <Link
-                    href="#"
+                    href="/JewelleryPhotos"
                     className="text-gray-500 font-bold hover:text-gray-700"
                     onClick={closeNavbar}
                   >
-                    Designer jewellery
+                    jewellery Photos
                   </Link>
                 </li>
 
                 <li>
                   <Link
-                    href="#"
+                    href="/About"
                     className="text-gray-500 font-bold hover:text-gray-700"
                     onClick={closeNavbar}
                   >
@@ -166,7 +166,7 @@ const Navbar = () => {
 
                 <div className="flex gap-4">
                   <Link
-                    href="#"
+                    href="/Login"
                     className="rounded-md bg-teal-600 px-5 py-2.5 text-sm text-white shadow font-bold"
                   >
                     Login
