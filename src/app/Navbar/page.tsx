@@ -168,6 +168,7 @@ const Navbar = () => {
                   <Link
                     href="/Login"
                     className="rounded-md bg-teal-600 px-5 py-2.5 text-sm text-white shadow font-bold"
+                    onClick={closeNavbar}
                   >
                     Login
                   </Link>
