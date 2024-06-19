@@ -43,7 +43,7 @@ const JewelleryPhotos = () => {
                 <img
                   src={`http://localhost:1337${item.attributes.image.data.attributes.url}`}
                   alt={item.attributes.title}
-                  className="object-cover h-64 w-full rounded-lg border bg-antiquewhite shadow-lg transition-transform duration-300 ease-in-out transform hover:scale-105"
+                  className="object-cover h-[300px] w-[300px] mx-auto rounded-lg border shadow-lg transition-transform duration-300 ease-in-out transform hover:scale-105"
                 />
               )}
             </div>
