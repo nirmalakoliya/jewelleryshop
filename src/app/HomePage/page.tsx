@@ -70,7 +70,7 @@ const HomePage = () => {
                                     (child: HomeBannerProps, index: number) => (
                                       <p
                                         key={index}
-                                        className="my-3 border border-gray-300 rounded text-gray-950 mt-4 text-left "
+                                        className="my-3 rounded text-gray-950 mt-4 text-left "
                                       >
                                         {child.text}
                                       </p>
