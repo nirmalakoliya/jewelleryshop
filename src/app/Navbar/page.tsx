@@ -68,7 +68,7 @@ const Navbar = () => {
 
                 <li>
                   <Link
-                    href="#"
+                    href="/Contact"
                     className="text-gray-500 font-bold hover:text-gray-700"
                   >
                     Contact
@@ -116,7 +116,7 @@ const Navbar = () => {
               <ul className="flex flex-col items-center gap-4 text-sm">
                 <li>
                   <Link
-                    href="#"
+                    href="/"
                     className="text-gray-500 font-bold hover:text-gray-700"
                     onClick={closeNavbar}
                   >
@@ -156,7 +156,7 @@ const Navbar = () => {
 
                 <li>
                   <Link
-                    href="#"
+                    href="/Contact"
                     className="text-gray-500 font-bold hover:text-gray-700"
                     onClick={closeNavbar}
                   >
