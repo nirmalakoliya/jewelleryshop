@@ -55,7 +55,7 @@ const ProductDetails = ({ params }: { params: { slug: string } }) => {
                         {bracelet.attributes.name2}
                       </h3>
                       <p className="text-green- font-bold">
-                        ${bracelet.attributes.price2}
+                        MRP : &#8377;{bracelet.attributes.price2}
                       </p>
                     </div>
                   </div>
