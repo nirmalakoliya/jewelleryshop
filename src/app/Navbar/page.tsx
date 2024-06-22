@@ -2,181 +2,214 @@
 import Link from "next/link";
 import React, { useState } from "react";
 import Image from "next/image";
+import { TiThMenu } from "react-icons/ti";
+import { IoCloseSharp } from "react-icons/io5";
+import { FaLongArrowAltDown, FaLongArrowAltUp } from "react-icons/fa";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [servicesOpen, setServicesOpen] = useState(false);
 
-  const toggleNavbar = () => {
+  const toggleMenu = () => {
     setIsOpen(!isOpen);
   };
 
-  const closeNavbar = () => {
+  const closeMenu = () => {
     setIsOpen(false);
+  };
+
+  const toggleServices = () => {
+    setServicesOpen(!servicesOpen);
   };
 
   return (
     <>
-      <header className="border-b border-gray-300 shadow">
-        <div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center h-16">
-          <Link href="/">
-            <Image
-              className="cursor-pointer"
-              src="/images/jewellery.png"
-              width={90}
-              height={100}
-              alt=""
-            />
-          </Link>
-          <div className="hidden md:flex md:gap-12">
-            <nav aria-label="Global">
-              <ul className="flex items-center gap-6 text-sm">
-                <li>
-                  <Link
-                    href="/"
-                    className="text-gray-500 border-l-red-50 font-bold hover:text-gray-700"
-                  >
-                    Home
-                  </Link>
-                </li>
+      <header className="h-20 bg-white relative z-50 border-b-2 border-gray-200">
+        <nav className="relative px-2">
+          <div className="container mx-auto flex justify-between items-center">
+            <Link href="/">
+              <Image
+                src="/images/jewellery.png"
+                width={90}
+                height={100}
+                alt=""
+              />
+            </Link>
 
-                <li>
-                  <Link
-                    href="/CustomJewellery"
-                    className="text-gray-500 font-bold hover:text-gray-700"
-                  >
-                    Custom jewellery
-                  </Link>
-                </li>
+            {/* Desktop Menu */}
+            <ul className="hidden md:flex space-x-6">
+              <li>
+                <Link href="/">
+                  <div>Home</div>
+                </Link>
+              </li>
+              <li>
+                <Link href="/CustomJewellery">
+                  <div>Custom jewellery</div>
+                </Link>
+              </li>
+              <li className="relative group">
+                <Link href="#">
+                  <div>Categories</div>
+                </Link>
+                <i className="fa-solid fa-chevron-down fa-2xs pt-3"></i>
 
-                <li>
-                  <Link
-                    href="/JewelleryPhotos"
-                    className="text-gray-500 font-bold hover:text-gray-700"
-                  >
-                    jewellery Photos
-                  </Link>
-                </li>
+                <ul className="absolute bg-white p-3 w-52 top-full left-0 hidden group-hover:block shadow-lg">
+                  <li className="text-sm hover:bg-slate-100 leading-8">
+                    <Link href="#">Gold Jewellery</Link>
+                  </li>
+                  <li className="text-sm hover:bg-slate-100 leading-8">
+                    <Link href="#">Diamond Jewellery</Link>
+                  </li>
+                  <li className="text-sm hover:bg-slate-100 leading-8">
+                    <Link href="#">Silver Jewellery</Link>
+                  </li>
+                  <li className="text-sm hover:bg-slate-100 leading-8">
+                    <Link href="#">Platinum Jewellery</Link>
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <Link href="/About">
+                  <div>About</div>
+                </Link>
+              </li>
+              <li>
+                <Link href="/Contact">
+                  <div>Contact</div>
+                </Link>
+              </li>
+            </ul>
 
-                <li>
-                  <Link
-                    href="/About"
-                    className="text-gray-500 font-bold hover:text-gray-700"
-                  >
-                    About
-                  </Link>
-                </li>
+            {/* Login In Button - Hidden on Mobile View */}
+            <Link
+              href="/Login"
+              className="bg-red-400 px-5 py-1 rounded-3xl hover:bg-red-500 text-white hidden md:flex"
+              role="button"
+            >
+              Login
+            </Link>
 
-                <li>
-                  <Link
-                    href="/Contact"
-                    className="text-gray-500 font-bold hover:text-gray-700"
-                  >
-                    Contact
-                  </Link>
-                </li>
-              </ul>
-            </nav>
+            {/* Mobile Menu Icon */}
+            <button onClick={toggleMenu} id="mobile-icon" className="md:hidden">
+              {isOpen ? <IoCloseSharp /> : <TiThMenu />}
+            </button>
           </div>
 
-          <div className="flex items-center gap-4">
-            <div className="hidden md:flex md:gap-4">
-              <Link
-                href="/Login"
-                className="rounded-full bg-teal-600 px-5 py-2.5 text-sm  font-bold text-white shadow"
+          {/* Mobile Menu */}
+          {isOpen && (
+            <div className="md:hidden flex justify-center mt-3 w-full">
+              <div
+                id="mobile-menu"
+                className="mobile-menu absolute top-23 w-full"
               >
-                Login
-              </Link>
+                <ul className="bg-gray-100 shadow-lg leading-9 font-bold">
+                  <li className="border-b-2 border-white hover:bg-red-400 hover:text-white pl-4">
+                    <Link href="/">
+                      <div onClick={closeMenu} className="block pl-7">
+                        Home
+                      </div>
+                    </Link>
+                  </li>
+                  <li className="border-b-2 border-white hover:bg-red-400 hover:text-white pl-4">
+                    <Link href="/CustomJewellery">
+                      <div onClick={closeMenu} className="block pl-7">
+                        Custom jewellery
+                      </div>
+                    </Link>
+                  </li>
+                  <li
+                    className={`border-b-2 border-white ${
+                      servicesOpen
+                        ? "bg-red-400 text-white"
+                        : "hover:bg-red-400 hover:text-white"
+                    } pl-4 relative flex items-center`}
+                    onClick={toggleServices}
+                  >
+                    <Link href="#" className=" pl-7 flex items-center">
+                      Categories{" "}
+                      {servicesOpen ? (
+                        <FaLongArrowAltUp className="ml-1" />
+                      ) : (
+                        <FaLongArrowAltDown className="ml-1" />
+                      )}
+                      <span className="ml-auto">
+                        <i className="fa-solid fa-chevron-right fa-2xs"></i>
+                      </span>
+                    </Link>
+
+                    {/* Services Submenu */}
+                    {servicesOpen && (
+                      <ul className="bg-white text-gray-800 w-full">
+                        <li className="text-sm leading-8 font-normal hover:bg-slate-200">
+                          <Link
+                            onClick={closeMenu}
+                            className="block pl-16"
+                            href="#"
+                          >
+                            Gold Jewellery
+                          </Link>
+                        </li>
+                        <li className="text-sm leading-8 font-normal hover:bg-slate-200">
+                          <Link
+                            onClick={closeMenu}
+                            className="block pl-16"
+                            href="#"
+                          >
+                            Diamond Jewellery
+                          </Link>
+                        </li>
+                        <li className="text-sm leading-8 font-normal hover:bg-slate-200">
+                          <Link
+                            onClick={closeMenu}
+                            className="block pl-16"
+                            href="#"
+                          >
+                            Silver Jewellery
+                          </Link>
+                        </li>
+                        <li className="text-sm leading-8 font-normal hover:bg-slate-200">
+                          <Link
+                            onClick={closeMenu}
+                            className="block pl-16"
+                            href="#"
+                          >
+                            Platinum Jewellery
+                          </Link>
+                        </li>
+                      </ul>
+                    )}
+                  </li>
+                  <li className="border-b-2 border-white hover:bg-red-400 hover:text-white pl-4">
+                    <Link href="/About">
+                      <div onClick={closeMenu} className="block pl-7">
+                        About
+                      </div>
+                    </Link>
+                  </li>
+                  <li className="border-b-2 border-white hover:bg-red-400 hover:text-white pl-4">
+                    <Link href="/Contact">
+                      <div onClick={closeMenu} className="block pl-7">
+                        Contact
+                      </div>
+                    </Link>
+                  </li>
+                  {/* Login In Button - Visible on Mobile View */}
+                  <li className="pt-4 px-4">
+                    <Link
+                      href="/Login"
+                      className="bg-red-400 px-5 py-1 rounded-3xl hover:bg-red-500 text-white block"
+                      role="button"
+                      onClick={closeMenu}
+                    >
+                      Login
+                    </Link>
+                  </li>
+                </ul>
+              </div>
             </div>
-            <div className="block md:hidden">
-              <button
-                onClick={toggleNavbar}
-                className="rounded bg-gray-100 p-2 text-gray-600 hover:text-gray-700"
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="h-6 w-6"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M4 6h16M4 12h16M4 18h16"
-                  />
-                </svg>
-              </button>
-            </div>
-          </div>
-        </div>
-        {/* Responsive navigation */}
-        {isOpen && (
-          <div className="md:hidden">
-            <nav aria-label="Global">
-              <ul className="flex flex-col items-center gap-4 text-sm">
-                <li>
-                  <Link
-                    href="/"
-                    className="text-gray-500 font-bold hover:text-gray-700"
-                    onClick={closeNavbar}
-                  >
-                    Home
-                  </Link>
-                </li>
-
-                <li>
-                  <Link
-                    href="/CustomJewellery"
-                    className="text-gray-500 font-bold hover:text-gray-700"
-                    onClick={closeNavbar}
-                  >
-                    Custom jewellery
-                  </Link>
-                </li>
-
-                <li>
-                  <Link
-                    href="/JewelleryPhotos"
-                    className="text-gray-500 font-bold hover:text-gray-700"
-                    onClick={closeNavbar}
-                  >
-                    jewellery Photos
-                  </Link>
-                </li>
-
-                <li>
-                  <Link
-                    href="/About"
-                    className="text-gray-500 font-bold hover:text-gray-700"
-                    onClick={closeNavbar}
-                  >
-                    About
-                  </Link>
-                </li>
-
-                <li>
-                  <Link
-                    href="/Contact"
-                    className="text-gray-500 font-bold hover:text-gray-700"
-                    onClick={closeNavbar}
-                  >
-                    Contact
-                  </Link>
-                </li>
-
-                <div className="flex gap-4">
-                  <Link
-                    href="/Login"
-                    className="rounded-md bg-teal-600 px-5 py-2.5 text-sm text-white shadow font-bold"
-                    onClick={closeNavbar}
-                  >
-                    Login
-                  </Link>
-                </div>
-              </ul>
-            </nav>
-          </div>
-        )}
+          )}
+        </nav>
       </header>
     </>
   );
