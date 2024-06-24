@@ -56,7 +56,7 @@ const Navbar = () => {
 
                 <ul className="absolute bg-white p-3 w-52 top-full left-0 hidden group-hover:block shadow-lg">
                   <li className="text-sm hover:bg-slate-100 leading-8">
-                    <Link href="#">Gold Jewellery</Link>
+                    <Link href="/GoldJewellery">Gold Jewellery</Link>
                   </li>
                   <li className="text-sm hover:bg-slate-100 leading-8">
                     <Link href="#">Diamond Jewellery</Link>
@@ -145,7 +145,7 @@ const Navbar = () => {
                           <Link
                             onClick={closeMenu}
                             className="block pl-16"
-                            href="#"
+                            href="/GoldJewellery"
                           >
                             Gold Jewellery
                           </Link>
