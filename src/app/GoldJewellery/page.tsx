@@ -31,7 +31,7 @@ const GoldJewellery = ({ params }: { params: { slug: string } }) => {
   };
 
   return (
-    <section className="pt-20 text-center overflow-hidden bg-antiquewhite">
+    <section className="pt-10 text-center overflow-hidden bg-antiquewhite">
       <div className="flex flex-wrap justify-center">
         {goldDatas.length > 0 ? (
           goldDatas.map((goldData: DataPros) => (
@@ -59,7 +59,7 @@ const GoldJewellery = ({ params }: { params: { slug: string } }) => {
                         <h3 className="text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-purple-500 lg:inline font-bold uppercase">
                           {bracelet.attributes.name2}
                         </h3>
-                        <p className="text-green- font-bold">
+                        <p className="font-bold">
                           MRP : &#8377;{bracelet.attributes.price2}
                         </p>
                       </div>
