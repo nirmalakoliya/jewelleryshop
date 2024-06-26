@@ -35,40 +35,43 @@ const CustomJewellery = () => {
 
   return (
     <>
-      <section className="p-10 sm:p-20 text-center overflow-hidden">
-        <h1 className="text-4xl font-bold mb-8">{heading}</h1>
-        <h2 className="text-2xl font-bold mb-4">{title}</h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
-          {data?.map((item: CustomJProps, id) => {
-            return (
-              <Link
-                href={`/CustomJewellery/${item.attributes.slug}`}
+      <section className="pt-10 text-center overflow-hidden bg-antiquewhite">
+        <div className="container mx-auto">
+          <h1 className="text-4xl font-bold mb-8">
+            <span className="bg-clip-text text-transparent bg-gradient-to-r from-green-400 to-purple-500">
+              {heading}
+            </span>
+          </h1>
+          <h2 className="text-2xl font-bold mb-4 uppercase">{title}</h2>
+          <div className="flex flex-wrap justify-center">
+            {data.map((item: CustomJProps) => (
+              <div
                 key={item.id}
+                className="w-72 p-4 m-4 bg-gray-300 rounded-lg shadow-md overflow-hidden hover:shadow-xl transition duration-300"
               >
-                <div
-                  key={id}
-                  className="max-w-sm rounded overflow-hidden shadow-lg border border-gray-300 transition duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-105"
-                >
-                  <div className="flex justify-center">
-                    <img
-                      className="h-[200px] w-[200px]"
-                      src={`http://localhost:1337${item.attributes.image.data.attributes.url}`}
-                      alt={item.attributes.name}
-                    />
-                  </div>
-                  <div className="px-6 py-4">
-                    <div className="font-bold text-xl mb-2">
-                      {item.attributes.name}
+                <Link href={`/CustomJewellery/${item.attributes.slug}`}>
+                  <section className="block w-full">
+                    <div className="text-center">
+                      <img
+                        className="h-48 w-48 mx-auto"
+                        src={`http://localhost:1337${item.attributes.image.data.attributes.url}`}
+                        alt={item.attributes.name}
+                      />
                     </div>
-                    <div>{item.attributes.description}</div>
-                    <p className="text-base text-green-900 font-bold">
-                      MRP : &#8377;{item.attributes.price}
-                    </p>
-                  </div>
-                </div>
-              </Link>
-            );
-          })}
+                    <div className="mt-4">
+                      <h3 className="font-bold uppercase">
+                        {item.attributes.name}
+                      </h3>
+                      <p>{item.attributes.description}</p>
+                      <p className="text-green-800 font-bold">
+                        MRP: &#8377;{item.attributes.price}
+                      </p>
+                    </div>
+                  </section>
+                </Link>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
     </>
