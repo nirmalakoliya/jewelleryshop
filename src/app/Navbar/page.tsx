@@ -65,7 +65,7 @@ const Navbar = () => {
                     <Link href="/SilverJewellery">Silver Jewellery</Link>
                   </li>
                   <li className="text-sm hover:bg-slate-100 leading-8">
-                    <Link href="#">Platinum Jewellery</Link>
+                    <Link href="/PlatinumJewellery">Platinum Jewellery</Link>
                   </li>
                 </ul>
               </li>
@@ -172,7 +172,7 @@ const Navbar = () => {
                           <Link
                             onClick={closeMenu}
                             className="block pl-16"
-                            href="#"
+                            href="/PlatinumJewellery"
                           >
                             Platinum Jewellery
                           </Link>
