@@ -24,73 +24,50 @@ const HomePage = () => {
     children: any;
     attributes: any;
     paragraph: any;
-    category: any;
     listItem: any;
   };
 
   return (
-    <>
-      <div className="max-w-screen-xl mx-auto p-5 sm:p-10 md:p-16 relative">
-        <div className="bg-cover bg-center text-center overflow-hidden">
-          {data?.map((item: HomeBannerProps, index) => {
-            return (
-              <div key={index}>
-                <img
-                  className="block select-none mx-auto bg-gray-300 transition duration-300 w-2400 h-1600"
-                  src={`http://localhost:1337${item.attributes.image.data.attributes.url}`}
-                  alt=""
-                />
-                <div className="max-w-3xl mx-auto">
-                  <div className="mt-3 bg-white rounded-b lg:rounded-b-none lg:rounded-r flex flex-col justify-between leading-normal">
-                    <div className="bg-white relative top-0 -mt-32 p-5 sm:p-10">
-                      <h1 className="text-gray-900 font-bold text-3xl mb-2">
-                        {item.attributes.heading}
-                      </h1>
-                      <p className="text-slate-400 hover:text-sky-950 font-bold underline decoration-pink-500 text-xs mt-2">
-                        {item.attributes.name}
-                      </p>
-                      {item.attributes.description.map(
-                        (paragraph: HomeBannerProps, index: number) => (
-                          <p key={index} className="text-base my-2 text-left">
-                            {paragraph.children.map((child: any) => child.text)}
-                          </p>
-                        )
-                      )}
-                      <div className="font-bold my-5 text-lg">
-                        {item.attributes.category}
-                      </div>
+    <div className="h-screen bg-gray-100 relative overflow-hidden">
+      {data?.map((item: HomeBannerProps, index) => (
+        <div
+          key={index}
+          className="relative h-full flex flex-col justify-center"
+        >
+          {/* Image */}
+          <img
+            className="absolute inset-0 object-cover w-full h-full z-0"
+            src={`http://localhost:1337${item.attributes.image.data.attributes.url}`}
+            alt=""
+          />
+          <div className="absolute inset-0 bg-black opacity-50 z-10"></div>
 
-                      {item.attributes.categoryDesc.map(
-                        (category: HomeBannerProps, index: number) => (
-                          <div key={index}>
-                            {category.children.map(
-                              (listItem: HomeBannerProps, index: number) => (
-                                <div key={index}>
-                                  {listItem.children.map(
-                                    (child: HomeBannerProps, index: number) => (
-                                      <p
-                                        key={index}
-                                        className="my-3 rounded text-gray-950 mt-4 text-left "
-                                      >
-                                        {child.text}
-                                      </p>
-                                    )
-                                  )}
-                                </div>
-                              )
-                            )}
-                          </div>
-                        )
-                      )}
-                    </div>
-                  </div>
-                </div>
+          {/* Content */}
+          <div className="absolute inset-0 flex items-center justify-center z-20">
+            <div className="container mx-auto p-4 md:p-8 lg:p-12 text-center">
+              <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-4 uppercase text-yellow-500">
+                {item.attributes.heading}
+              </h1>
+
+              <p className="text-lg sm:text-xl text-white">
+                {item.attributes.name}
+              </p>
+              <div className="mt-4">
+                {item.attributes.description.map(
+                  (paragraph: any, index: number) => (
+                    <p key={index} className="text-base my-2 text-white">
+                      {paragraph.children.map((child: any, index: number) => (
+                        <span key={index}>{child.text}</span>
+                      ))}
+                    </p>
+                  )
+                )}
               </div>
-            );
-          })}
+            </div>
+          </div>
         </div>
-      </div>
-    </>
+      ))}
+    </div>
   );
 };
 
