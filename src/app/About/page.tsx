@@ -27,33 +27,34 @@ const AboutJewellery = () => {
 
   return (
     <>
-      <div className="bg-white bg-opacity-75">
+      <div className="bg-gray-100">
         <div className="max-w-7xl mx-auto px-4 py-16 sm:px-6 lg:px-8">
           {data?.map((item: AboutJewelleryProps, index) => (
             <div
               key={index}
-              className="my-10 sm:flex sm:items-center sm:justify-center"
+              className="my-10 sm:flex sm:items-center sm:justify-center sm:gap-8"
             >
-              <div className="sm:w-2/3 selection:mr-10">
-                <h2 className="text-2xl font-extrabold text-black mb-4">
+              <div className="sm:w-2/3">
+                <h2 className="text-3xl font-extrabold text-gray-900 mb-4 uppercase">
                   {item.attributes.title}
                 </h2>
-                {/* Accessing the description */}
-                {item.attributes.description.map(
-                  (desc: AboutJewelleryProps, descIndex: number) => (
-                    <p key={descIndex} className="text-lg">
-                      {desc.children.map((child: any, childIndex: number) => (
-                        <React.Fragment key={childIndex}>
-                          {child.text}
-                        </React.Fragment>
-                      ))}
-                    </p>
-                  )
-                )}
+                <div className="text-lg text-gray-800">
+                  {item.attributes.description.map(
+                    (desc: AboutJewelleryProps, descIndex: number) => (
+                      <p key={descIndex}>
+                        {desc.children.map((child: any, childIndex: number) => (
+                          <React.Fragment key={childIndex}>
+                            {child.text}
+                          </React.Fragment>
+                        ))}
+                      </p>
+                    )
+                  )}
+                </div>
               </div>
-              <div className="sm:w-1/3 sm:mt-0 mt-6">
+              <div className="sm:w-1/3 mt-6 sm:mt-0">
                 <img
-                  className="w-[1000px] h-[696px] rounded"
+                  className="w-full h-auto rounded-lg shadow-lg"
                   src={`http://localhost:1337${item.attributes.image.data.attributes.url}`}
                   alt=""
                 />
