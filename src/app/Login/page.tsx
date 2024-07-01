@@ -74,21 +74,21 @@ const LoginPage = () => {
         <div className="max-w-screen-xl m-0 sm:m-10 bg-white shadow sm:rounded-lg flex justify-center flex-1">
           <div className="lg:w-1/2 xl:w-5/12 p-6 sm:p-12">
             <div className="mt-12 flex flex-col items-center">
-              <h1 className="text-2xl xl:text-3xl font-extrabold">Sign up</h1>
+              <h1 className="text-2xl xl:text-3xl font-extrabold">Sign in</h1>
               <div className="w-full flex-1 mt-8">
                 <div className="flex flex-col items-center">
                   <button className="w-full max-w-xs font-bold shadow-sm rounded-lg py-3 bg-indigo-100 text-gray-800 flex items-center justify-center transition-all duration-300 ease-in-out focus:outline-none hover:shadow focus:shadow-sm focus:shadow-outline">
                     <div className="bg-white p-2 rounded-full">
                       <FcGoogle />
                     </div>
-                    <span className="ml-4">Sign Up with Google</span>
+                    <span className="ml-4">Sign In with Google</span>
                   </button>
 
                   <button className="w-full max-w-xs font-bold shadow-sm rounded-lg py-3 bg-indigo-100 text-gray-800 flex items-center justify-center transition-all duration-300 ease-in-out focus:outline-none hover:shadow focus:shadow-sm focus:shadow-outline mt-5">
                     <div className="bg-white p-1 rounded-full">
                       <FaGithub />
                     </div>
-                    <span className="ml-4">Sign Up with GitHub</span>
+                    <span className="ml-4">Sign In with GitHub</span>
                   </button>
                 </div>
 
@@ -128,7 +128,7 @@ const LoginPage = () => {
                     )}
                     <button className="mt-5 tracking-wide font-semibold bg-indigo-500 text-gray-100 w-full py-4 rounded-lg hover:bg-indigo-700 transition-all duration-300 ease-in-out flex items-center justify-center focus:shadow-outline focus:outline-none">
                       <TiUserAdd />
-                      <span className="ml-3">Sign Up</span>
+                      <span className="ml-3">Sign In</span>
                     </button>
                   </form>
                   <p className="mt-6 text-xs text-gray-600 text-center">
